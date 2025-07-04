@@ -29,9 +29,11 @@
    - Open the project folder.
    - Create a file named `.env` in the root directory (if it doesn't exist).
    - Add the following line to your `.env` file:
+
      ```
      VITE_APP_GEMINI_API_KEY=your_api_key_here
      ```
+
      Replace `your_api_key_here` with the API key you copied.
 
 6. **Restart the App (if needed):**  
@@ -49,7 +51,7 @@
 npm run dev
 
 # Install Dependency
-npm run dev
+npm install
 
 ```
 

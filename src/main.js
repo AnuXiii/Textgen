@@ -1,6 +1,6 @@
 import { Loading } from "./components/loader";
 
-const API_KEY = import.meta.env.VITE_APP_API_KEY; // add your api key
+const API_KEY = import.meta.env.VITE_APP_GEMINI_API_KEY; // add your api key
 
 // min and max length for generating random text types
 const MIN_LENGTH = 1;
@@ -75,23 +75,23 @@ function reduce() {
 
 generateBtn.addEventListener("click", generateText);
 
-// generate random text with gemini
+// random text generator handler
 async function generateText() {
 	generateBtn.classList.add("generating");
 	generateBtn.textContent = "در حال تولید...";
 
 	Loading(result, true);
+	result.style.overflowY = "hidden";
 
 	try {
 		// add url key here
 		const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
-		// edit prompt if you want
 		const prompt = `
             Generate ${params.count} ${params.genType}s of placeholder text in ${params.lang}. 
             Make sure the text looks realistic but has no real meaning (like lorem ipsum). 
             Separate each ${params.genType} with (n) keyword. Do not include explanations.
-            Only return the generated text.
-            `;
+            Only return the generated text. 
+            `; // edit prompt if you want
 
 		// fetch data
 		const response = await fetch(url, {
@@ -108,6 +108,8 @@ async function generateText() {
 		}
 
 		const text = await response.json();
+
+		if (!text) return;
 
 		const output = text.candidates[0].content.parts[0].text;
 
@@ -127,9 +129,10 @@ async function generateText() {
 	} catch (error) {
 		console.log(error);
 	} finally {
-		// reset generate button to default
+		// reset generate button & result container to default
 		generateBtn.classList.remove("generating");
 		generateBtn.textContent = "تولید";
+		result.style.overflowY = "auto";
 	}
 }
 

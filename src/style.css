@@ -1,0 +1,230 @@
+/* fonts */
+@font-face {
+	font-family: "irsans";
+	font-display: swap;
+	src: url(/fonts/iransans/IRANSansWeb.woff2) format("woff2");
+}
+
+:root {
+	--primary-clr: #845ef7;
+	--secondary-clr: #f3f0ff;
+	--accent-clr: #5c7cfa;
+	--red-clr: #f03e3e;
+	--green-clr: #40c057;
+	--hover-clr: #e5dbff;
+	--black: #121212;
+	--white: #f9f9f9;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+li {
+	list-style: none;
+}
+
+button {
+	font: inherit;
+	border: none;
+	outline: none;
+	cursor: pointer;
+
+	&:focus-visible {
+		outline: 2px solid var(--white);
+	}
+}
+
+html {
+	color-scheme: dark;
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--black);
+	color: var(--white);
+	/* font: normal normal 1.2rem "Work Sans"; */
+	direction: rtl;
+	text-align: right;
+	font-family: "irsans";
+}
+
+@layer utils {
+	.grid {
+		display: grid;
+	}
+
+	.flex {
+		display: flex;
+	}
+
+	.flex-col {
+		flex-direction: column;
+	}
+
+	.items-center {
+		align-items: center;
+	}
+
+	.justify-center {
+		justify-content: center;
+	}
+
+	.justify-between {
+		justify-content: space-between;
+	}
+
+	.gap-1 {
+		gap: 1rem;
+	}
+
+	.gap-3 {
+		gap: 3rem;
+	}
+
+	.col-2 {
+		grid-template-columns: repeat(1, 1fr);
+
+		@media (min-width: 720px) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	.w-full {
+		width: 100%;
+	}
+}
+
+/* components */
+.wrapper {
+	max-width: 1200px;
+	padding: 1rem;
+	margin: 0 auto;
+	width: 100%;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 5rem;
+}
+
+.brand {
+	color: var(--primary-clr);
+}
+
+.btn {
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
+	background: var(--secondary-clr);
+	box-shadow: 0 12px 20px rgb(0 0 0 /0.5);
+	color: var(--black);
+	width: 100%;
+	transition: 0.2s;
+
+	&.success {
+		background: var(--green-clr);
+		pointer-events: none;
+		user-select: none;
+	}
+
+	&.active {
+		background: var(--primary-clr);
+		color: var(--white);
+	}
+
+	&:active:not(.count-value) {
+		scale: 0.99;
+	}
+
+	&:hover:not(.btn-copy, .btn-action, .active, .count-value),
+	&:active:not(.btn-copy, .btn-action, .active, .count-value) {
+		background: var(--hover-clr);
+	}
+}
+
+.btn-copy {
+	background: var(--accent-clr);
+	color: var(--white);
+}
+
+.btn-action {
+	background: linear-gradient(to left, var(--accent-clr), var(--primary-clr));
+	color: var(--white);
+}
+
+#generate {
+	&.generating {
+		pointer-events: none;
+		user-select: none;
+		opacity: 0.8;
+	}
+}
+
+.result {
+	padding: 1rem;
+	border: 1px solid rgb(255 255 255 / 0.3);
+	border-radius: 0.5rem;
+	box-shadow: 0 12px 20px rgb(0 0 0 /0.5);
+	min-height: 20vh;
+	word-break: break-all;
+	line-height: 2rem;
+
+	&.en {
+		font-family: "Work Sans";
+	}
+}
+
+.para:not(:last-child) {
+	margin-bottom: 1rem;
+}
+
+.actions {
+	margin-top: 5rem;
+}
+
+.count-value {
+	background: var(--white);
+	text-align: left;
+}
+
+.count {
+	position: relative;
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.count-action {
+	position: absolute;
+
+	.btn {
+		border: 1px solid rgb(0 0 0 /0.1);
+		border-radius: 0;
+		box-shadow: none;
+	}
+}
+
+.loader-overlay {
+	position: absolute;
+	inset: 0;
+	background: rgb(0 0 0 /0.8);
+	border-radius: inherit;
+	backdrop-filter: blur(4px);
+	z-index: 2;
+}
+
+.loader {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 100vw;
+	border: 3px solid var(--primary-clr);
+	border-left-color: transparent;
+	animation: rotate 1s infinite;
+}
+
+@keyframes rotate {
+	to {
+		rotate: 360deg;
+	}
+}

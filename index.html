@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/vite.svg" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0" />
+		<title>Vite App</title>
+		<link
+			rel="stylesheet"
+			href="/src/style.css" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<!--  -->
+			<header class="header flex justify-center items-center">
+				<h1>Generate random text's with <span class="brand">Texgen</span></h1>
+			</header>
+			<!--  -->
+			<div class="grid gap-3 col-2">
+				<div class="grid-item buttons flex flex-col gap-1">
+					<ul class="gen-type flex items-center gap-1">
+						<li class="w-full">
+							<button
+								tabindex="0"
+								title="پاراگراف"
+								aria-label="paragraph"
+								data-index="0"
+								data-value="paragraph"
+								class="btn active">
+								پاراگراف
+							</button>
+						</li>
+						<li class="w-full">
+							<button
+								tabindex="0"
+								title="جمله"
+								aria-label="sentence"
+								data-index="0"
+								data-value="sentence"
+								class="btn">
+								جمله
+							</button>
+						</li>
+						<li class="w-full">
+							<button
+								tabindex="0"
+								title="کلمه"
+								aria-label="word"
+								data-index="0"
+								data-value="word"
+								class="btn">
+								کلمه
+							</button>
+						</li>
+					</ul>
+					<ul class="lang-select flex gap-1 items-center">
+						<li class="w-full">
+							<button
+								tabindex="0"
+								title="فارسی"
+								aria-label="persian"
+								data-index="1"
+								data-value="persian"
+								class="btn active">
+								فارسی
+							</button>
+						</li>
+						<li class="w-full">
+							<button
+								tabindex="0"
+								title="انگلیسی"
+								aria-label="english"
+								data-index="1"
+								data-value="english"
+								class="btn">
+								انگلیسی
+							</button>
+						</li>
+					</ul>
+					<div class="count flex">
+						<ul class="count-action flex">
+							<li class="w-full">
+								<button
+									tabindex="0"
+									title="زیاد کردن"
+									aria-label="increase"
+									data-index="3"
+									class="btn btn-xs">
+									➕
+								</button>
+							</li>
+							<li class="w-full">
+								<button
+									tabindex="0"
+									title="کم کردن"
+									aria-label="reduce"
+									data-index="3"
+									class="btn btn-xs">
+									➖
+								</button>
+							</li>
+						</ul>
+						<div
+							data-index="2"
+							class="count-value w-full btn">
+							1
+						</div>
+					</div>
+				</div>
+				<!--  -->
+				<div class="grid-item flex flex-col gap-1">
+					<button
+						tabindex="0"
+						title="کپی متن"
+						aria-label="copy text"
+						class="btn btn-copy">
+						کپی متن
+					</button>
+					<div class="result">
+						<p class="para">
+							لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
+							متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
+							کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،
+							شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
+							الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری
+							موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و
+							جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+						</p>
+					</div>
+				</div>
+			</div>
+			<!--  -->
+			<ul class="actions flex gap-3">
+				<li class="w-full">
+					<button
+						tabindex="0"
+						title="تولید"
+						aria-label="create"
+						class="btn btn-action"
+						id="generate">
+						تولید
+					</button>
+				</li>
+				<li class="w-full">
+					<button
+						tabindex="0"
+						title="ریست"
+						aria-label="reset"
+						class="btn btn-action"
+						id="reset">
+						ریست
+					</button>
+				</li>
+			</ul>
+		</div>
+		<!--  -->
+		<script
+			type="module"
+			src="/src/main.js"></script>
+	</body>
+</html>

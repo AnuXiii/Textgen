@@ -4,7 +4,10 @@ function Loading(parent, isLoading = true) {
 		isExist.remove();
 	}
 
-	if (!isLoading) return;
+	if (!isLoading) {
+		parent.style.zIndex = "auto";
+		return;
+	}
 
 	const loader = document.createElement("div");
 	loader.className = "loader-overlay flex items-center justify-center";
@@ -15,6 +18,7 @@ function Loading(parent, isLoading = true) {
 	}
 
 	parent.appendChild(loader);
+	parent.style.zIndex = "-1";
 }
 
 export { Loading };

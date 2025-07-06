@@ -134,6 +134,8 @@ async function generateText() {
 		generateBtn.textContent = "تولید";
 		result.style.overflowY = "auto";
 	}
+
+	Loading(result, false);
 }
 
 copyBtn.addEventListener("click", copyGeneratedText);
